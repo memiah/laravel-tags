@@ -186,7 +186,7 @@ it('provides a scope to get all models that have any of the given tags 2', funct
 
     $testModels = TestModel::withAnyTags(['tagB', 'tagC']);
 
-    expect($testModels->pluck('name')->toArray())->toEqual(['model2', 'model3']);
+    expect($testModels->pluck('name')->toArray())->toContain('model2', 'model3');
 });
 
 
@@ -208,11 +208,11 @@ it('provides a scope to get all models that have a given tag', function () {
 
     $testModels = TestModel::withAnyTags('tagB');
 
-    expect($testModels->pluck('name')->toArray())->toEqual(['model2', 'model3']);
+    expect($testModels->pluck('name')->toArray())->toContain('model2', 'model3');
 
     $testModels = TestModel::withAllTags('tagB');
 
-    expect($testModels->pluck('name')->toArray())->toEqual(['model2', 'model3']);
+    expect($testModels->pluck('name')->toArray())->toContain('model2', 'model3');
 });
 
 
@@ -253,7 +253,7 @@ it('provides a scope to get all models that do not have any of the given tags', 
 
     $testModels = TestModel::withoutTags(['tagC']);
 
-    expect($testModels->pluck('name')->toArray())->toEqual(['default', 'model1']);
+    expect($testModels->pluck('name')->toArray())->toContain('default', 'model1');
 
     $testModels = TestModel::withoutTags(['tagC', 'tagB']);
 
@@ -312,6 +312,19 @@ it('can sync tags with different types', function () {
     expect($tagsOfTypeB->pluck('name')->toArray())->toEqual(['tagB1', 'tagB2']);
 });
 
+it('can sync tags without a type and not affect tags with a type', function () {
+    $this->testModel->syncTagsWithType(['test1', 'test2'], 'testType');
+
+    $this->testModel->syncTagsWithType(['test3']);
+
+    expect($this->testModel->tags->pluck('name')->toArray())->toEqual(['test1', 'test2', 'test3']);
+
+    expect($this->testModel->tags->where('name', '=', 'test1')->first()->type)->toEqual('testType');
+
+    expect($this->testModel->tags->where('name', '=', 'test2')->first()->type)->toEqual('testType');
+
+    expect($this->testModel->tags->where('name', '=', 'test3')->first()->type)->toBeNull();
+});
 
 it('can sync same tag type with different models with same foreign id', function () {
     $this->testModel->syncTagsWithType(['tagA1', 'tagA2', 'tagA3'], 'typeA');
@@ -348,4 +361,26 @@ it('can sync tags with same name', function () {
 
     $tagsOfTypeA = $this->testModel->tagsWithType('typeA');
     expect($tagsOfTypeA->pluck('name')->toArray())->toEqual(['tagA1']);
+});
+
+it('can check if it has a tag', function () {
+    $tag = Tag::findOrCreate('test-tag');
+    $anotherTag = Tag::findOrCreate('another-tag');
+
+    $this->testModel->attachTag($tag);
+
+    expect($this->testModel->hasTag('test-tag'))->toBeTrue();
+    expect($this->testModel->hasTag($tag->id))->toBeTrue();
+    expect($this->testModel->hasTag('non-existing-tag'))->toBeFalse();
+    expect($this->testModel->hasTag($anotherTag->id))->toBeFalse();
+});
+
+it('can check if it has a tag with type', function () {
+    $tag = Tag::findOrCreate('test-tag', 'type1');
+    $sameNameDifferentType = Tag::findOrCreate('test-tag', 'type2');
+
+    $this->testModel->attachTag($tag);
+
+    expect($this->testModel->hasTag('test-tag', 'type1'))->toBeTrue();
+    expect($this->testModel->hasTag('test-tag', 'type2'))->toBeFalse();
 });

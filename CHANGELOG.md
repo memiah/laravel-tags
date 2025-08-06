@@ -2,6 +2,116 @@
 
 All notable changes to `laravel-tags` will be documented in this file
 
+## 4.10.0 - 2025-03-08
+
+### What's Changed
+
+* Add Postgres support with tests by @neverything in https://github.com/spatie/laravel-tags/pull/534
+* Add withAnyTagsOfType scope by @voicecode-bv in https://github.com/spatie/laravel-tags/pull/535
+
+### New Contributors
+
+* @neverything made their first contribution in https://github.com/spatie/laravel-tags/pull/534
+* @voicecode-bv made their first contribution in https://github.com/spatie/laravel-tags/pull/535
+
+**Full Changelog**: https://github.com/spatie/laravel-tags/compare/4.9.2...4.10.0
+
+## 4.9.2 - 2025-02-14
+
+### What's Changed
+
+* Laravel 12 support by @poldixd in https://github.com/spatie/laravel-tags/pull/531
+
+**Full Changelog**: https://github.com/spatie/laravel-tags/compare/4.9.1...4.9.2
+
+## 4.9.1 - 2025-01-31
+
+### What's Changed
+
+* Added php syntax highlighting by @poldixd in https://github.com/spatie/laravel-tags/pull/527
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/spatie/laravel-tags/pull/528
+* Allow custom tag table name and primary key for scoped queries by @gtmassey in https://github.com/spatie/laravel-tags/pull/529
+
+### New Contributors
+
+* @poldixd made their first contribution in https://github.com/spatie/laravel-tags/pull/527
+* @gtmassey made their first contribution in https://github.com/spatie/laravel-tags/pull/529
+
+**Full Changelog**: https://github.com/spatie/laravel-tags/compare/4.9.0...4.9.1
+
+## 4.9.0 - 2025-01-06
+
+### What's Changed
+
+* fix implicit nullable type declaration PHP 8.4 by @l3aro in https://github.com/spatie/laravel-tags/pull/526
+
+### New Contributors
+
+* @l3aro made their first contribution in https://github.com/spatie/laravel-tags/pull/526
+
+**Full Changelog**: https://github.com/spatie/laravel-tags/compare/4.8.0...4.9.0
+
+## 4.8.0 - 2024-12-30
+
+### What's Changed
+
+* Fixes for HasTags.php - PHP 8.4 implicit nullable type declaration  by @idealerror in https://github.com/spatie/laravel-tags/pull/525
+
+### New Contributors
+
+* @idealerror made their first contribution in https://github.com/spatie/laravel-tags/pull/525
+
+**Full Changelog**: https://github.com/spatie/laravel-tags/compare/4.7.2...4.8.0
+
+## 4.7.2 - 2024-12-09
+
+### What's Changed
+
+* Fix dynamic taggable table name by @xalunda in https://github.com/spatie/laravel-tags/pull/520
+
+### New Contributors
+
+* @xalunda made their first contribution in https://github.com/spatie/laravel-tags/pull/520
+
+**Full Changelog**: https://github.com/spatie/laravel-tags/compare/4.7.1...4.7.2
+
+## 4.7.1 - 2024-12-09
+
+### What's Changed
+
+* Update HasTags.php by @scramatte in https://github.com/spatie/laravel-tags/pull/523
+
+### New Contributors
+
+* @scramatte made their first contribution in https://github.com/spatie/laravel-tags/pull/523
+
+**Full Changelog**: https://github.com/spatie/laravel-tags/compare/4.7.0...4.7.1
+
+## 4.7.0 - 2024-10-03
+
+### What's Changed
+
+* docs: update the contents of the published config file by @alexrififi in https://github.com/spatie/laravel-tags/pull/506
+* Fix Test Badge by @askdkc in https://github.com/spatie/laravel-tags/pull/510
+* Fixed links to documentation pages by @sertxudev in https://github.com/spatie/laravel-tags/pull/512
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.1.0 by @dependabot in https://github.com/spatie/laravel-tags/pull/504
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/spatie/laravel-tags/pull/515
+* Added support for translation via JSON fields for PostgreSQL by @CheesyTech in https://github.com/spatie/laravel-tags/pull/509
+* bugfix: fixes the syncWithType method to avoid deleting tags without … by @stanbridge-wcorrea in https://github.com/spatie/laravel-tags/pull/511
+* Add "hasTag" method to check if the model has a certain tag by @jimmitjoo in https://github.com/spatie/laravel-tags/pull/517
+* Document the `hasTag` method by @AlexVanderbist in https://github.com/spatie/laravel-tags/pull/519
+
+### New Contributors
+
+* @alexrififi made their first contribution in https://github.com/spatie/laravel-tags/pull/506
+* @askdkc made their first contribution in https://github.com/spatie/laravel-tags/pull/510
+* @sertxudev made their first contribution in https://github.com/spatie/laravel-tags/pull/512
+* @CheesyTech made their first contribution in https://github.com/spatie/laravel-tags/pull/509
+* @stanbridge-wcorrea made their first contribution in https://github.com/spatie/laravel-tags/pull/511
+* @jimmitjoo made their first contribution in https://github.com/spatie/laravel-tags/pull/517
+
+**Full Changelog**: https://github.com/spatie/laravel-tags/compare/4.6.1...4.7.0
+
 ## 4.6.1 - 2024-03-01
 
 ### What's Changed
